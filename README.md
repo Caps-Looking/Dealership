@@ -1,24 +1,39 @@
-# README
+# Dealership
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Study project of car dealership
 
-Things you may want to cover:
+### Versions
 
-* Ruby version
+- Ruby version `3.1.2`
+- Rails version `7.0.3.1`
 
-* System dependencies
+### System dependencies
 
-* Configuration
+- Docker
+- Ruby and Rails versions above
 
-* Database creation
+### Configuration
 
-* Database initialization
+- Run `docker compose up` (port `5432` must be available)
+- Run `bundle install`
 
-* How to run the test suite
+### Database creation
 
-* Services (job queues, cache servers, search engines, etc.)
+- Run `rake db:create`
 
-* Deployment instructions
+### Database initialization
 
-* ...
+- Run `rake db:migrate`
+
+### Database seed (optional)
+
+- Run `rake db:seed`
+
+### How to run the project
+
+- Run `rails server` (port `3000` must be available)
+- Access `http://localhost:3000`
+
+### How to run the test suite
+
+- Run `bundle exec rspec`
