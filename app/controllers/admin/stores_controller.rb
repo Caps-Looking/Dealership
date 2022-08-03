@@ -2,24 +2,23 @@
 
 module Admin
   class StoresController < ApplicationController
+    before_action :set_store, only: %i[show edit update destroy]
+
     def index
       @stores = Store.all
     end
 
     def new
       @store = Store.new
+      @store.build_address
     end
 
-    def show
-      set_store
-    end
+    def show; end
 
-    def edit
-      set_store
-    end
+    def edit; end
 
     def create
-      @store = Store.new store_create_params
+      @store = Store.new store_params
 
       if @store.save
         redirect_to admin_store_path(@store)
@@ -29,8 +28,7 @@ module Admin
     end
 
     def update
-      set_store
-      if @store.update(store_update_params)
+      if @store.update store_params
         redirect_to admin_store_path(@store)
       else
         render :edit
@@ -38,10 +36,9 @@ module Admin
     end
 
     def destroy
-      @store = Store.find(params[:id])
       @store.destroy
 
-      redirect_to admin_stores_path, status: :see_other
+      redirect_to admin_stores_path
     end
 
     private
@@ -50,20 +47,11 @@ module Admin
       @store = Store.find(params[:id])
     end
 
-    def store_create_params
+    def store_params
       params.require(:store).permit(
-        :name, :cep, :country,
-        :state, :city, :district,
-        :street, :number, :complement
-      ).to_h
-    end
-
-    def store_update_params
-      params.require(:store).permit(
-        :name, :cep, :country,
-        :state, :city, :district,
-        :street, :number, :complement
-      ).to_h
+        :name,
+        address_attributes: %i[cep state city district street number complement]
+      )
     end
   end
 end

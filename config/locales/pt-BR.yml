@@ -1,0 +1,7 @@
+pt-BR:
+  new_store: "Nova Loja"
+  edit_store: "Editar Loja"
+  destroy_store: "Apagar Loja"
+  all_stores: "Todas as Lojas"
+  stores: "Lojas"
+  confirm_destroy: "Deseja realmente apagar?"

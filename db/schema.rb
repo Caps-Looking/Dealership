@@ -10,22 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_03_125120) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_03_202902) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "stores", force: :cascade do |t|
-    t.string "name", limit: 50
-    t.string "cep"
-    t.string "country"
-    t.string "state"
-    t.string "city"
-    t.string "district"
-    t.string "street"
-    t.string "number"
+  create_table "addresses", force: :cascade do |t|
+    t.string "cep", null: false
+    t.string "state", null: false
+    t.string "city", null: false
+    t.string "district", null: false
+    t.string "street", null: false
+    t.string "number", null: false
     t.text "complement"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "address_id"
+    t.index ["address_id"], name: "index_stores_on_address_id"
     t.index ["name"], name: "index_stores_on_name", unique: true
   end
 

@@ -62,14 +62,15 @@ RSpec.describe 'Stores', type: :request do
       let(:store_params) do
         {
           name: 'Test Store',
-          cep: '123456',
-          country: 'BR',
-          state: 'SP',
-          city: 'São Paulo',
-          district: 'District',
-          street: 'Street street',
-          number: '123',
-          complement: 'A complement'
+          address_attributes: {
+            cep: '123456',
+            state: 'SP',
+            city: 'São Paulo',
+            district: 'District',
+            street: 'Street street',
+            number: '123',
+            complement: 'A complement'
+          }
         }
       end
 
@@ -77,7 +78,8 @@ RSpec.describe 'Stores', type: :request do
 
       it 'saves the correct store' do
         expect { create_store }.to change(Store, :count).by 1
-        expect(assigns(:store)).to have_attributes(name: 'Test Store', country: 'BR', complement: 'A complement')
+        expect(assigns(:store)).to have_attributes(name: 'Test Store',
+                                                   address: have_attributes(complement: 'A complement'))
       end
     end
 
@@ -87,14 +89,15 @@ RSpec.describe 'Stores', type: :request do
       let(:store_params) do
         {
           name: 'Test Store',
-          cep: '123456',
-          country: 'BR',
-          state: 'SP',
-          city: 'São Paulo',
-          district: 'District',
-          street: 'Street street',
-          number: '123',
-          complement: 'A complement'
+          address_attributes: {
+            cep: '123456',
+            state: 'SP',
+            city: 'São Paulo',
+            district: 'District',
+            street: 'Street street',
+            number: '123',
+            complement: 'A complement'
+          }
         }
       end
 
@@ -107,7 +110,8 @@ RSpec.describe 'Stores', type: :request do
       put admin_store_path(store), params: { store: store_params }
     end
 
-    let(:store) { create(:store, name: 'Test Store', country: 'BR') }
+    let(:address) { create(:address, cep: '123456') }
+    let(:store) { create(:store, name: 'Test Store', address:) }
 
     context 'with valid params' do
       let(:store_params) do
@@ -118,13 +122,16 @@ RSpec.describe 'Stores', type: :request do
 
       it 'updates the correct store' do
         expect { put_store }.to change(Store, :count).by 1
-        expect(assigns(:store)).to have_attributes(name: 'Test Store 2', country: 'BR')
+        expect(assigns(:store)).to have_attributes(name: 'Test Store 2', address: have_attributes(cep: '123456'))
       end
     end
 
     context 'with invalid params' do
       let(:store_params) do
-        { name: 'Test Store 2', country: '' }
+        {
+          name: 'Test Store 2',
+          address_attributes: { country: '' }
+        }
       end
 
       it { expect(put_store).to render_template :edit }

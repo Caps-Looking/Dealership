@@ -16,7 +16,7 @@ describe 'Store Editing' do
 
       click_button 'Save'
 
-      expect(page).to have_text('John Doe 2') && have_text(store.cep) && have_text(store.country)
+      expect(page).to have_text('John Doe 2') && have_text(store.address.cep)
     end
   end
 

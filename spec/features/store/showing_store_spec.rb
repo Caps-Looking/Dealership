@@ -16,7 +16,7 @@ describe 'Store Showing' do
     expect(page).to have_link 'Edit Store'
     expect(page).to have_link 'Destroy Store'
 
-    expect(page).to have_text store.name && store.cep && store.country && store.state &&
-                              store.city && store.street && store.number && store.complement
+    expect(page).to have_text store.name && store.address.cep && store.address.state && store.address.city &&
+                              store.address.street && store.address.number && store.address.complement
   end
 end

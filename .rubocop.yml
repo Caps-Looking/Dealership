@@ -33,5 +33,9 @@ RSpec/ExampleLength:
   Exclude:
     - "spec/**/*.rb"
 
+Rails/ReversibleMigration:
+  Exclude:
+    - "db/migrate/*.rb"
+
 Style/Documentation:
   Enabled: false

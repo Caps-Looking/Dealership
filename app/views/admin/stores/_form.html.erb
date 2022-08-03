@@ -1,0 +1,19 @@
+<%= link_to t('all_stores'), admin_stores_path %>
+
+</br></br>
+<%= simple_form_for [:admin, @store ] do |f| %>
+    <%= f.input :name, input_html: { autocomplete: "off" } %>
+
+    <%= f.simple_fields_for :address do |a| %>
+        <%= a.input :cep, input_html: { autocomplete: "off", onkeypress: "$(this).mask('00000-000')" }%>
+        <%= a.input :state, input_html: { autocomplete: "off" } %>
+        <%= a.input :city, input_html: { autocomplete: "off" } %>
+        <%= a.input :district, input_html: { autocomplete: "off" } %>
+        <%= a.input :street, input_html: { autocomplete: "off" } %>
+        <%= a.input :number, input_html: { autocomplete: "off" } %>
+        <%= a.input :complement, input_html: { autocomplete: "off" } %>
+    <% end %>
+
+    </br>
+    <%= f.submit "Save" %>
+<% end %>

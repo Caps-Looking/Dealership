@@ -14,7 +14,6 @@ describe 'Store Creating' do
 
       fill_in 'Name', with: 'John Doe'
       fill_in 'Cep', with: '12312312312'
-      select 'Brazil', from: 'Country'
       fill_in 'State', with: 'SP'
       fill_in 'City', with: 'São Paulo'
       fill_in 'District', with: 'District 1'
@@ -24,7 +23,7 @@ describe 'Store Creating' do
 
       click_button 'Save'
 
-      expect(page).to have_text('John Doe') && have_text('12312312312') && have_text('BR')
+      expect(page).to have_text('John Doe') && have_text('12312312312')
     end
   end
 
