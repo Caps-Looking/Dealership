@@ -1,0 +1,19 @@
+<h1>Create Store</h1>
+
+<%= link_to "All Stores", admin_stores_path %>
+
+</br></br>
+<%= simple_form_for @store, method: :post, url: admin_stores_path do |f| %>
+    <%= f.input :name, input_html: { autocomplete: "off" } %>
+    <%= f.input :cep, input_html: { autocomplete: "off" } %>
+    <%= f.input :country, input_html: { autocomplete: "off" } %>
+    <%= f.input :state, input_html: { autocomplete: "off" } %>
+    <%= f.input :city, input_html: { autocomplete: "off" } %>
+    <%= f.input :district, input_html: { autocomplete: "off" } %>
+    <%= f.input :street, input_html: { autocomplete: "off" } %>
+    <%= f.input :number, input_html: { autocomplete: "off" } %>
+    <%= f.input :complement, input_html: { autocomplete: "off" } %>
+
+    </br>
+    <%= f.submit "Save" %>
+<% end %>
