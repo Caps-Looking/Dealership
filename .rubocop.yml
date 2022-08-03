@@ -25,5 +25,13 @@ RSpec/EmptyExampleGroup:
   Exclude:
     - "spec/integration/**/*_spec.rb"
 
+RSpec/MultipleExpectations:
+  Exclude:
+    - "spec/**/*.rb"
+
+RSpec/ExampleLength:
+  Exclude:
+    - "spec/**/*.rb"
+
 Style/Documentation:
   Enabled: false
