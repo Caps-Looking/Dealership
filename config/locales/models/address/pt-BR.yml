@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      address: Endereço
+    attributes:
+      address:
+        cep: CEP
+        state: Estado
+        city: Cidate
+        district: Bairro
+        street: Rua
+        number: Número
+        complement: Complemento

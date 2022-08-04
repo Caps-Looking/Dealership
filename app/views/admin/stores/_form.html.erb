@@ -2,9 +2,9 @@
 
 </br></br>
 <%= simple_form_for [:admin, @store ] do |f| %>
-    <%= f.input :name, label: t('store.name'), input_html: { autocomplete: "off" } %>
+    <%= f.input :name, input_html: { autocomplete: "off" } %>
 
     <%= render 'admin/addresses/form', f: %>
     </br>
-    <%= f.submit t('general.save') %>
+    <%= f.submit  %>
 <% end %>

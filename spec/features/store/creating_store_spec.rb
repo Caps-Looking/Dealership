@@ -12,16 +12,16 @@ describe 'Store Creating' do
     it 'creates a store' do
       expect(page).to have_link I18n.t('store.all')
 
-      fill_in I18n.t('store.name'), with: 'John Doe'
-      fill_in I18n.t('address.cep'), with: '12312312312'
-      fill_in I18n.t('address.state'), with: 'SP'
-      fill_in I18n.t('address.city'), with: 'São Paulo'
-      fill_in I18n.t('address.district'), with: 'District 1'
-      fill_in I18n.t('address.street'), with: 'Street street'
-      fill_in I18n.t('address.number'), with: '123'
-      fill_in I18n.t('address.complement'), with: 'A Complement'
+      fill_in I18n.t('activerecord.attributes.store.name'), with: 'John Doe'
+      fill_in I18n.t('activerecord.attributes.address.cep'), with: '12312312312'
+      fill_in I18n.t('activerecord.attributes.address.state'), with: 'SP'
+      fill_in I18n.t('activerecord.attributes.address.city'), with: 'São Paulo'
+      fill_in I18n.t('activerecord.attributes.address.district'), with: 'District 1'
+      fill_in I18n.t('activerecord.attributes.address.street'), with: 'Street street'
+      fill_in I18n.t('activerecord.attributes.address.number'), with: '123'
+      fill_in I18n.t('activerecord.attributes.address.complement'), with: 'A Complement'
 
-      click_button I18n.t('general.save')
+      find('input[type="submit"]').click
 
       expect(page).to have_text('John Doe') && have_text('12312312312')
     end
@@ -29,8 +29,8 @@ describe 'Store Creating' do
 
   context 'with invalid params' do
     it 'shows error message' do
-      fill_in I18n.t('store.name'), with: 'John Doe'
-      click_button I18n.t('general.save')
+      fill_in I18n.t('activerecord.attributes.store.name'), with: 'John Doe'
+      find('input[type="submit"]').click
 
       expect(page).to have_text I18n.t('errors.messages.blank')
     end

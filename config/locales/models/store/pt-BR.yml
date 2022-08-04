@@ -1,0 +1,7 @@
+pt-BR:
+  activerecord:
+    models:
+      store: Loja
+    attributes:
+      store:
+        name: Nome

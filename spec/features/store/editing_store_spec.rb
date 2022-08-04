@@ -12,9 +12,9 @@ describe 'Store Editing' do
 
   context 'with valid params' do
     it 'edits the store' do
-      fill_in I18n.t('store.name'), with: 'John Doe 2'
+      fill_in I18n.t('activerecord.attributes.store.name'), with: 'John Doe 2'
 
-      click_button I18n.t('general.save')
+      find('input[type="submit"]').click
 
       expect(page).to have_text('John Doe 2') && have_text(store.address.cep)
     end
@@ -22,8 +22,8 @@ describe 'Store Editing' do
 
   context 'with invalid params' do
     it 'shows error message' do
-      fill_in I18n.t('store.name'), with: ''
-      click_button I18n.t('general.save')
+      fill_in I18n.t('activerecord.attributes.store.name'), with: ''
+      find('input[type="submit"]').click
 
       expect(page).to have_text I18n.t('errors.messages.blank')
     end
