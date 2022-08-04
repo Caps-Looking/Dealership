@@ -12,9 +12,9 @@ describe 'Store Showing' do
   end
 
   it 'Showing store' do
-    expect(page).to have_link 'All Stores'
-    expect(page).to have_link 'Edit Store'
-    expect(page).to have_link 'Destroy Store'
+    expect(page).to have_link I18n.t('store.all')
+    expect(page).to have_link I18n.t('store.edit')
+    expect(page).to have_link I18n.t('store.destroy')
 
     expect(page).to have_text store.name && store.address.cep && store.address.state && store.address.city &&
                               store.address.street && store.address.number && store.address.complement

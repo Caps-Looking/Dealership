@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class Address < ApplicationRecord
-  has_one :store, dependent: :destroy
+  has_one :store, dependent: :nullify
 
-  validates :number, format: { with: /[0-9]/ }
-  validates :cep, :state, :city, :district, :number,
-            presence: true, length: { in: 2..50 }
+  validates :number, presence: true, numericality: { only_integer: true, greater_than: 0, less_than: 9_999_999 }
+  validates :cep, :state, :city, :district, presence: true, length: { in: 2..50 }
 
   validates :street, presence: true, length: { in: 2..100 }
   validates :complement, length: { maximum: 1000 }

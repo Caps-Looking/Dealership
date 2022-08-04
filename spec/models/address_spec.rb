@@ -20,9 +20,7 @@ RSpec.describe Address, type: :model do
     it { is_expected.to validate_length_of(:street).is_at_least(2).is_at_most(100) }
 
     it { is_expected.to validate_presence_of :number }
-    it { is_expected.to validate_length_of(:number).is_at_least(2).is_at_most(50) }
-    it { is_expected.to allow_value(123).for(:number) }
-    it { is_expected.not_to allow_value('abc').for(:number) }
+    it { is_expected.to validate_numericality_of(:number).only_integer.is_greater_than(0).is_less_than(9_999_999) }
 
     it { is_expected.to validate_length_of(:complement).is_at_most(1000) }
   end

@@ -9,7 +9,7 @@ describe 'Store Listing' do
   before { visit admin_stores_path }
 
   it 'Listing stores' do
-    expect(page).to have_link 'New Store'
+    expect(page).to have_link I18n.t('store.new')
 
     expect(page).to have_text store.id
     expect(page).to have_text store.name

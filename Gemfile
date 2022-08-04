@@ -16,6 +16,8 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'jquery-rails'
+gem 'jquery_mask_rails', '~> 0.1.0'
 
 group :development, :test do
   gem 'byebug'

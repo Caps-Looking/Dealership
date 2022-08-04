@@ -3,7 +3,7 @@
 class AddAddressToStores < ActiveRecord::Migration[7.0]
   def change
     change_table :stores do |t|
-      t.belongs_to :address
+      t.belongs_to :address, null: false
     end
   end
 end

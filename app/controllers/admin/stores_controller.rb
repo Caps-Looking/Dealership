@@ -13,10 +13,6 @@ module Admin
       @store.build_address
     end
 
-    def show; end
-
-    def edit; end
-
     def create
       @store = Store.new store_params
 
@@ -38,7 +34,7 @@ module Admin
     def destroy
       @store.destroy
 
-      redirect_to admin_stores_path
+      redirect_to admin_stores_path, status: :see_other # https://github.com/rails/rails/issues/44170
     end
 
     private

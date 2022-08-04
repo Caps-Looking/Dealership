@@ -4,5 +4,5 @@ class Store < ApplicationRecord
   belongs_to :address, dependent: :destroy
   accepts_nested_attributes_for :address
 
-  validates :name, uniqueness: true, presence: true
+  validates :name, uniqueness: true, presence: true, length: { in: 2..50 }
 end

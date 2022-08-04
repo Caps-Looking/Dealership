@@ -1,0 +1,9 @@
+<%= f.simple_fields_for :address do |a| %>
+    <%= a.input :cep, label: t('address.cep'), input_html: { autocomplete: "off", onkeypress: "$(this).mask('00000-000')" }%>
+    <%= a.input :state, label: t('address.state'), input_html: { autocomplete: "off" } %>
+    <%= a.input :city, label: t('address.city'), input_html: { autocomplete: "off" } %>
+    <%= a.input :district, label: t('address.district'), input_html: { autocomplete: "off" } %>
+    <%= a.input :street, label: t('address.street'), input_html: { autocomplete: "off" } %>
+    <%= a.input :number, label: t('address.number'), input_html: { autocomplete: "off" } %>
+    <%= a.input :complement, label: t('address.complement'), input_html: { autocomplete: "off" } %>
+<% end %>

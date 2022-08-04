@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_03_202902) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "address_id"
+    t.bigint "address_id", null: false
     t.index ["address_id"], name: "index_stores_on_address_id"
     t.index ["name"], name: "index_stores_on_name", unique: true
   end

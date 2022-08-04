@@ -1,17 +1,17 @@
 <h1><%= @store.name %></h1>
 
-<%= link_to t('all_stores'), admin_stores_path %>
-<%= link_to t('edit_store'), edit_admin_store_path(@store) %>
-<%= link_to t('destroy_store'), admin_store_path(@store), data: {
+<%= link_to t('store.all'), admin_stores_path %>
+<%= link_to t('store.edit'), edit_admin_store_path(@store) %>
+<%= link_to t('store.destroy'), admin_store_path(@store), data: {
     turbo_method: :delete,
-    turbo_confirm: t('confirm_destroy')
+    turbo_confirm: t('general.confirm_destroy')
 } %>
 
 </br></br>
-<b>CEP:</b> <%= @store.address.cep %> </br>
-<b>State:</b> <%= @store.address.state %> </br>
-<b>City:</b> <%= @store.address.city %> </br>
-<b>District:</b> <%= @store.address.district %> </br>
-<b>Street:</b> <%= @store.address.street %> </br>
-<b>Number:</b> <%= @store.address.number %> </br>
-<b>Complement:</b> <%= @store.address.complement %>
+<b><%= t('address.cep') %>:</b> <%= @store.address.cep %> </br>
+<b><%= t('address.state') %>:</b> <%= @store.address.state %> </br>
+<b><%= t('address.city') %>:</b> <%= @store.address.city %> </br>
+<b><%= t('address.district') %>:</b> <%= @store.address.district %> </br>
+<b><%= t('address.street') %>:</b> <%= @store.address.street %> </br>
+<b><%= t('address.number') %>:</b> <%= @store.address.number %> </br>
+<b><%= t('address.complement') %>:</b> <%= @store.address.complement %>

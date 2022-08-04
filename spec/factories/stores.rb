@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :store do
-    name { Faker::FunnyName.name }
+    name { Faker::Name.unique.name }
 
     address
   end

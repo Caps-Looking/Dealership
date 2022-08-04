@@ -1,7 +1,26 @@
 pt-BR:
-  new_store: "Nova Loja"
-  edit_store: "Editar Loja"
-  destroy_store: "Apagar Loja"
-  all_stores: "Todas as Lojas"
-  stores: "Lojas"
-  confirm_destroy: "Deseja realmente apagar?"
+  errors:
+    messages:
+      required: "precisa existir"
+      taken: "já existe"
+      blank: "não pode ser vazio"
+      greater_than: "precisa ser maior que %{count}"
+      less_than: "precisa ser menor que %{count}"
+  general:
+    confirm_destroy: "Deseja realmente apagar?"
+    save: "Salvar"
+  store:
+    new: "Nova Loja"
+    edit: "Editar Loja"
+    destroy: "Apagar Loja"
+    all: "Todas as Lojas"
+    stores: "Lojas"
+    name: "Nome"
+  address:
+    cep: "CEP"
+    state: "Estado"
+    city: "Cidate"
+    district: "Bairro"
+    street: "Rua"
+    number: "Número"
+    complement: "Complemento"
