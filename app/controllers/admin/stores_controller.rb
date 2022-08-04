@@ -29,7 +29,7 @@ module Admin
       if @store.update store_params
         redirect_to admin_store_path(@store)
       else
-        render :edit
+        render :edit, status: :unprocessable_entity
       end
     end
 
