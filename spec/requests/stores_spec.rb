@@ -63,7 +63,7 @@ RSpec.describe 'Stores', type: :request do
         {
           name: 'Test Store',
           address_attributes: {
-            cep: '123456',
+            cep: '12312-312',
             state: 'SP',
             city: 'São Paulo',
             district: 'District',
@@ -90,7 +90,7 @@ RSpec.describe 'Stores', type: :request do
         {
           name: 'Test Store',
           address_attributes: {
-            cep: '123456',
+            cep: '12312-312',
             state: 'SP',
             city: 'São Paulo',
             district: 'District',
@@ -110,7 +110,7 @@ RSpec.describe 'Stores', type: :request do
       put admin_store_path(store), params: { store: store_params }
     end
 
-    let(:address) { create(:address, cep: '123456') }
+    let(:address) { create(:address, cep: '12312-312') }
     let(:store) { create(:store, name: 'Test Store', address:) }
 
     context 'with valid params' do
@@ -122,7 +122,7 @@ RSpec.describe 'Stores', type: :request do
 
       it 'updates the correct store' do
         expect { put_store }.to change(Store, :count).by 1
-        expect(assigns(:store)).to have_attributes(name: 'Test Store 2', address: have_attributes(cep: '123456'))
+        expect(assigns(:store)).to have_attributes(name: 'Test Store 2', address: have_attributes(cep: '12312-312'))
       end
     end
 

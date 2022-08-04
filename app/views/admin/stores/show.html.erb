@@ -1,17 +1,17 @@
 <h1><%= @store.name %></h1>
 
-<%= link_to t('store.all'), admin_stores_path %>
-<%= link_to t('store.edit'), edit_admin_store_path(@store) %>
-<%= link_to t('store.destroy'), admin_store_path(@store), data: {
+<%= link_to t('views.store.all'), admin_stores_path %>
+<%= link_to t('views.store.edit'), edit_admin_store_path(@store) %>
+<%= link_to t('views.store.destroy'), admin_store_path(@store), data: {
     turbo_method: :delete,
     turbo_confirm: t('general.confirm_destroy')
 } %>
 
 </br></br>
 <b><%= t('activerecord.attributes.address.cep') %>:</b> <%= @store.address.cep %> </br>
-<b><%= t('activerecord.attributes.address.state') %>:</b> <%= @store.address.state %> </br>
-<b><%= t('activerecord.attributes.address.city') %>:</b> <%= @store.address.city %> </br>
-<b><%= t('activerecord.attributes.address.district') %>:</b> <%= @store.address.district %> </br>
-<b><%= t('activerecord.attributes.address.street') %>:</b> <%= @store.address.street %> </br>
-<b><%= t('activerecord.attributes.address.number') %>:</b> <%= @store.address.number %> </br>
-<b><%= t('activerecord.attributes.address.complement') %>:</b> <%= @store.address.complement %>
+<b><%= t('activerecord.attributes.address.state') %>:</b> <%= @store.state %> </br>
+<b><%= t('activerecord.attributes.address.city') %>:</b> <%= @store.city %> </br>
+<b><%= t('activerecord.attributes.address.district') %>:</b> <%= @store.district %> </br>
+<b><%= t('activerecord.attributes.address.street') %>:</b> <%= @store.street %> </br>
+<b><%= t('activerecord.attributes.address.number') %>:</b> <%= @store.number %> </br>
+<b><%= t('activerecord.attributes.address.complement') %>:</b> <%= @store.complement %>

@@ -1,0 +1,8 @@
+en:
+  views:
+    stores: Stores
+    store:
+      new: New Store
+      edit: Edit Store
+      destroy: Destroy Store
+      all: All Stores

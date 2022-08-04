@@ -10,7 +10,7 @@ describe 'Store Deleting' do
   end
 
   it 'Deleting store' do
-    click_link I18n.t('store.destroy')
+    click_link I18n.t('views.store.destroy')
 
     expect(page).not_to have_text('John Doe')
   end

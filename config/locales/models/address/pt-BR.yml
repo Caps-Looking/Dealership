@@ -6,7 +6,7 @@ pt-BR:
       address:
         cep: CEP
         state: Estado
-        city: Cidate
+        city: Cidade
         district: Bairro
         street: Rua
         number: Número

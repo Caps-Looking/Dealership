@@ -7,7 +7,7 @@ describe 'Store Editing' do
 
   before do
     visit admin_store_path(store)
-    click_link I18n.t('store.edit')
+    click_link I18n.t('views.store.edit')
   end
 
   context 'with valid params' do

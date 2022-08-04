@@ -1,9 +1,3 @@
 pt-BR:
   general:
     confirm_destroy: Deseja realmente apagar?
-  store:
-    new: Nova Loja
-    edit: Editar Loja
-    destroy: Apagar Loja
-    all: Todas as Lojas
-    stores: Lojas
