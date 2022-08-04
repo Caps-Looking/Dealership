@@ -8,6 +8,8 @@ ruby '3.1.2'
 gem 'bootsnap', require: false
 gem 'importmap-rails'
 gem 'jbuilder'
+gem 'jquery_mask_rails', '~> 0.1.0'
+gem 'jquery-rails'
 gem 'pg', '~> 1.4', '>= 1.4.2'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
@@ -16,8 +18,6 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'jquery-rails'
-gem 'jquery_mask_rails', '~> 0.1.0'
 
 group :development, :test do
   gem 'byebug'

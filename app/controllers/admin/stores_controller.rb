@@ -2,7 +2,9 @@
 
 module Admin
   class StoresController < ApplicationController
+    # rubocop:disable Rails/LexicallyScopedActionFilter
     before_action :set_store, only: %i[show edit update destroy]
+    # rubocop:enable Rails/LexicallyScopedActionFilter
 
     def index
       @stores = Store.all
