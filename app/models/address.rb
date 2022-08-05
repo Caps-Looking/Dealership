@@ -5,9 +5,9 @@ class Address < ApplicationRecord
   has_one :store
   # rubocop:enable Rails/HasManyOrHasOneDependent
 
-  validates :cep, :state, :city, :district, presence: true, length: { in: 2..50 }
+  validates :state, :city, :district, presence: true, length: { in: 2..50 }
 
-  validates :cep, presence: true, length: { minimum: 9, maximum: 9 }
+  validates :cep, presence: true, length: { is: 9 }
   validates :number, presence: true, numericality: { only_integer: true, greater_than: 0, less_than: 9_999_999 }
   validates :street, presence: true, length: { in: 2..100 }
   validates :complement, length: { maximum: 1000 }

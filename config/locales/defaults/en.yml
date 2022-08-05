@@ -1,10 +1,3 @@
 en:
   general:
     confirm_destroy: Do you really want to destroy?
-    save: Save
-  store:
-    new: New Store
-    edit: Edit Store
-    destroy: Destroy Store
-    all: All Stores
-    stores: Stores

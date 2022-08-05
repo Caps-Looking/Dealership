@@ -1,13 +1,7 @@
 en:
   activerecord:
     models:
-      address: Address
+      store: Store
     attributes:
-      address:
-        cep: CEP
-        state: State
-        city: City
-        district: District
-        street: Street
-        number: Number
-        complement: Complement
+      store:
+        name: Name
