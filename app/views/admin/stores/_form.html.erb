@@ -1,0 +1,10 @@
+<%= link_to t('views.store.all'), admin_stores_path %>
+
+</br></br>
+<%= simple_form_for [:admin, @store ] do |f| %>
+    <%= f.input :name, input_html: { autocomplete: "off" } %>
+
+    <%= render 'admin/addresses/form', f: %>
+    </br>
+    <%= f.submit  %>
+<% end %>

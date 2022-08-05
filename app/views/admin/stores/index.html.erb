@@ -1,0 +1,12 @@
+<h1><%= t('views.stores')%></h1>
+<%= link_to t('views.store.new'), new_admin_store_path %>
+<ul>
+    <% @stores.each do |store| %>
+        <li>
+            <%= store.id %>
+            <a href="<%= admin_store_path(store) %>">
+                <%= store.name %>
+            </a>
+        </li>
+    <% end %>
+</ul>

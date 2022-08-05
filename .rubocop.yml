@@ -25,5 +25,17 @@ RSpec/EmptyExampleGroup:
   Exclude:
     - "spec/integration/**/*_spec.rb"
 
+RSpec/MultipleExpectations:
+  Exclude:
+    - "spec/**/*.rb"
+
+RSpec/ExampleLength:
+  Exclude:
+    - "spec/**/*.rb"
+
+Rails/ReversibleMigration:
+  Exclude:
+    - "db/migrate/*.rb"
+
 Style/Documentation:
   Enabled: false
