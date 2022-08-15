@@ -6,6 +6,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 gem 'bootsnap', require: false
+gem 'cancancan'
+gem 'devise'
+gem 'email_validator'
+gem 'enumerate_it'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'jquery_mask_rails', '~> 0.1.0'
@@ -17,7 +21,6 @@ gem 'rails-i18n', '~> 7.0.0'
 gem 'simple_form'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
-gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do

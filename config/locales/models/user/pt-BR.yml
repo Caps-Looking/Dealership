@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      user: Usuário
+    attributes:
+      user:
+        name: Nome
+        username: Nome de Usuário
+        user_type: Tipo de Usuário
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação de Senha
+        current_password: Senha Atual
+        remember_me: Lembrar-me
+        store: Loja

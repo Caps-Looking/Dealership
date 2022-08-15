@@ -1,0 +1,22 @@
+<%= link_to t('views.user.all'), admin_users_path %>
+</br></br>
+<%= simple_form_for [:admin, @user ] do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name, required: true, autofocus: true %>
+    <%= f.input :username, required: true, autofocus: true %>
+    <%= f.label :user_type %><%= f.select :user_type, UserType.to_a %>
+    <div id="hidden_store">
+      <%= f.association :store, collection: Store.all, required: true %>
+    </div>
+    <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }%>
+    <%= f.input :password, required: true,
+                hint: (t('general.characters_minimum', chars_num: @minimum_password_length) if @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation, required: true,
+                input_html: { autocomplete: "new-password" } %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+<%= javascript_import_module_tag "user" %>

@@ -1,0 +1,5 @@
+en:
+  enumerations:
+    user_type:
+      admin: Admin
+      store: Store

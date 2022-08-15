@@ -1,0 +1,5 @@
+pt-BR:
+  mailers:
+    welcome_mailer:
+      hello: "Olá %{name}!"
+      welcome: Bem vindo ao Dealership!
