@@ -11,5 +11,4 @@ pt-BR:
         password: Senha
         password_confirmation: Confirmação de Senha
         current_password: Senha Atual
-        remember_me: Lembrar-me
         store: Loja

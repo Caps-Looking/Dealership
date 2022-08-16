@@ -8,9 +8,9 @@ RSpec.describe WelcomeMailer, type: :mailer do
     let(:mail) { described_class.welcome_send(user) }
 
     it 'renders the headers' do
-      expect(mail.subject).to eq(I18n.t('mailers.welcome_mailer.welcome'))
+      expect(mail.subject).to eq(I18n.t('mailers.welcome_mailer.subject'))
       expect(mail.to).to eq([user.email])
-      expect(mail.from).to eq(['info@dealership.com'])
+      expect(mail.from).to eq(['no-reply@dealership.com'])
     end
   end
 end

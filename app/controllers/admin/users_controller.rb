@@ -7,7 +7,7 @@ module Admin
     # rubocop:enable Rails/LexicallyScopedActionFilter
 
     def index
-      @users = User.all
+      @users = User.includes(:store)
     end
 
     def new
@@ -15,13 +15,11 @@ module Admin
     end
 
     def create
-      @user = User.new user_params
-
-      if @user.save
-        redirect_to admin_user_path(@user)
-      else
-        render :new, status: :unprocessable_entity
-      end
+      @user = CreateUserService.new(user_params).perform
+      redirect_to admin_user_path(@user)
+    rescue ActiveRecord::RecordInvalid => e
+      @user = e.record
+      render :new, status: :unprocessable_entity
     end
 
     def update
@@ -45,15 +43,10 @@ module Admin
     end
 
     def user_params
-      params.require(:user).permit(
-        :username,
-        :name,
-        :email,
-        :user_type,
-        :store_id,
-        :password,
-        :password_confirmation
-      )
+      allowed_params = %i[username name email user_type password password_confirmation]
+      allowed_params << :store_id if params[:user][:user_type].to_i == UserType::STORE
+
+      params.require(:user).permit(allowed_params)
     end
   end
 end

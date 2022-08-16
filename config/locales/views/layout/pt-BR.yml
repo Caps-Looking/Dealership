@@ -1,8 +1,0 @@
-pt-BR:
-  views:
-    layout:
-      logged_as: Logado como
-      edit_user: Editar usuário
-      login: Login
-      logout: Logout
-      sign_in: Registrar-se

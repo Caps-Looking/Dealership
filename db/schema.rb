@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_05_161029) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_16_131937) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,4 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_05_161029) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "stores", "addresses"
+  add_foreign_key "users", "stores"
 end

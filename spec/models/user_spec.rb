@@ -4,17 +4,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'Associations' do
-    context 'when is a store' do
-      before { allow(subject).to receive(:store?).and_return(true) }
-
-      it { is_expected.to validate_presence_of :store }
-    end
-
-    context 'when is not a store' do
-      before { allow(subject).to receive(:store?).and_return(false) }
-
-      it { is_expected.to belong_to(:store).optional }
-    end
+    it { is_expected.to belong_to(:store).optional }
   end
 
   describe 'Validations' do
