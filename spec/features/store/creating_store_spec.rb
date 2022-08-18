@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'Store Creating' do
+describe 'Store Creating', type: :feature do
   before do
     visit admin_stores_path
     click_link I18n.t('views.store.new')

@@ -1,5 +1,4 @@
 en:
   general:
     confirm_destroy: Do you really want to destroy?
-    characters_minimum: "%{chars_num} characters minimum"
     back: Back

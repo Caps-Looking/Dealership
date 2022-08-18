@@ -143,9 +143,18 @@ RSpec.describe 'Stores', type: :request do
       delete admin_store_path(store)
     end
 
-    let!(:store) { create(:store) }
+    context 'with users' do
+      let(:store) { create(:store) }
+      let!(:user) { create(:user, store:) }
 
-    it { expect { delete_store }.to change(Store, :count).by(-1) }
-    it { expect(delete_store).to redirect_to admin_stores_path }
+      it { expect(delete_store).to render_template :show }
+    end
+
+    context 'without users' do
+      let!(:store) { create(:store) }
+
+      it { expect { delete_store }.to change(Store, :count).by(-1) }
+      it { expect(delete_store).to redirect_to admin_stores_path }
+    end
   end
 end

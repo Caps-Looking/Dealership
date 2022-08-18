@@ -1,7 +1,11 @@
 en:
   activerecord:
     models:
-      store: Store
+      store:
+        one: Store
+        other: Stores
     attributes:
       store:
         name: Name
+        user: User
+        users: Users

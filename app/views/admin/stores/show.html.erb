@@ -1,10 +1,4 @@
-<% if @store.errors.any? %>
-  <ul>
-    <% @store.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'layouts/errors', resource: @store %>
 <h1><%= @store.name %></h1>
 <%= link_to t('views.store.all'), admin_stores_path %>
 <%= link_to t('views.store.edit'), edit_admin_store_path(@store) %>

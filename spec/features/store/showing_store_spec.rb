@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'Store Showing' do
+describe 'Store Showing', type: :feature do
   let!(:stores) { create_list :store, 5 }
   let(:store) { stores.first }
 

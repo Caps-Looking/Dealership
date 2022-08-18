@@ -1,7 +1,11 @@
 pt-BR:
   activerecord:
     models:
-      store: Loja
+      store:
+        one: Loja
+        other: Lojas
     attributes:
       store:
         name: Nome
+        user: Usuário
+        users: Usuários

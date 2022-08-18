@@ -15,7 +15,7 @@ module Admin
     end
 
     def create
-      @user = CreateUserService.new(user_params).perform
+      @user = UsersService.new(User.new, user_params).save!
       redirect_to admin_user_path(@user)
     rescue ActiveRecord::RecordInvalid => e
       @user = e.record
@@ -23,17 +23,19 @@ module Admin
     end
 
     def update
-      if @user.update user_params
-        redirect_to admin_user_path(@user)
-      else
-        render :edit, status: :unprocessable_entity
-      end
+      @user = UsersService.new(@user, user_params).save!
+      redirect_to admin_user_path(@user)
+    rescue ActiveRecord::RecordInvalid => e
+      @user = e.record
+      render :edit, status: :unprocessable_entity
     end
 
     def destroy
-      @user.destroy
-
-      redirect_to admin_users_path, status: :see_other
+      if @user.destroy
+        redirect_to admin_users_path, status: :see_other
+      else
+        render :show, status: :unprocessable_entity
+      end
     end
 
     private
@@ -44,7 +46,7 @@ module Admin
 
     def user_params
       allowed_params = %i[username name email user_type password password_confirmation]
-      allowed_params << :store_id if params[:user][:user_type].to_i == UserType::STORE
+      allowed_params << :store_id if params[:user] && params[:user][:user_type].to_i == UserType::STORE
 
       params.require(:user).permit(allowed_params)
     end

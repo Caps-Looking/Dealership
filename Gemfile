@@ -31,13 +31,9 @@ group :development do
   gem 'web-console'
 end
 
-group :test do
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
-end
-
 group :test, :development do
+  gem 'capybara'
+  gem 'database_cleaner-active_record'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rails-controller-testing'
@@ -46,5 +42,7 @@ group :test, :development do
   gem 'rubocop-performance', '~> 1.14', '>= 1.14.3'
   gem 'rubocop-rails', '~> 2.15', '>= 2.15.2'
   gem 'rubocop-rspec', '~> 2.12', '>= 2.12.1'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 5.1'
+  gem 'webdrivers'
 end

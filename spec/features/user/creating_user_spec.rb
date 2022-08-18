@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'User Creating' do
+describe 'User Creating', type: :feature do
   before do
     visit admin_users_path
     click_link I18n.t('views.user.new')

@@ -1,7 +1,9 @@
 pt-BR:
   activerecord:
     models:
-      user: Usuário
+      user:
+        one: Usuário
+        other: Usuários
     attributes:
       user:
         name: Nome
@@ -12,3 +14,4 @@ pt-BR:
         password_confirmation: Confirmação de Senha
         current_password: Senha Atual
         store: Loja
+        stores: Lojas

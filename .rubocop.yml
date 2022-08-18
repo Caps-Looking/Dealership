@@ -8,6 +8,10 @@ require:
 AllCops:
   NewCops: enable
 
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*_spec.rb"
+
 Metrics/BlockLength:
   Exclude:
     - "spec/**/*_spec.rb"
@@ -20,7 +24,7 @@ Metrics/MethodLength:
 
 RSpec/LetSetup:
   Exclude:
-    - "spec/integration/**/*_spec.rb"
+    - "spec/**/*_spec.rb"
 
 RSpec/EmptyExampleGroup:
   Exclude:

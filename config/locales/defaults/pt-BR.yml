@@ -1,5 +1,4 @@
 pt-BR:
   general:
     confirm_destroy: Deseja realmente apagar?
-    characters_minimum: "mínimo de %{chars_num} caracteres"
     back: Voltar

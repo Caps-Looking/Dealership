@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'User Listing' do
+describe 'User Listing', type: :feature do
   let!(:users) { create_list :user, 5 }
   let(:user) { users.first }
 

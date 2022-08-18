@@ -5,6 +5,18 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'Associations' do
     it { is_expected.to belong_to(:store).optional }
+
+    context 'when is admin' do
+      subject { build(:user, user_type: UserType::ADMIN) }
+
+      it { is_expected.not_to validate_presence_of(:store) }
+    end
+
+    context 'when is store' do
+      subject { build(:user, user_type: UserType::STORE) }
+
+      it { is_expected.to validate_presence_of(:store) }
+    end
   end
 
   describe 'Validations' do

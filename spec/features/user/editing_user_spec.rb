@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'User Editing' do
+describe 'User Editing', type: :feature do
   let(:user) { create :user, name: 'John Doe' }
 
   before do
