@@ -1,0 +1,6 @@
+en:
+  mailers:
+    welcome_mailer:
+      title: "Hello %{name}!"
+      message: Welcome to Dealership!
+      subject: Welcome to Dealership!

@@ -1,0 +1,16 @@
+<%= render 'layouts/errors', resource: @user %>
+<h1><%= @user.name %></h1>
+<%= link_to t('views.user.all'), admin_users_path %>
+<%= link_to t('views.user.edit'), edit_admin_user_path(@user) %>
+<%= link_to t('views.user.destroy'), admin_user_path(@user), data: {
+    method: :delete,
+    confirm: t('general.confirm_destroy')
+} %>
+</br></br>
+<b><%= t('activerecord.attributes.user.username') %>:</b> <%= @user.username %> </br>
+<b><%= t('activerecord.attributes.user.email') %>:</b> <%= @user.email %> </br>
+<b><%= t('activerecord.attributes.user.user_type') %>:</b> <%= @user.user_type_humanize %></br>
+<% if @user.store? %>
+  <b><%= t('activerecord.attributes.user.store') %>:</b> <%= @user.store&.name %> </br>
+</div>
+<% end %>

@@ -1,0 +1,8 @@
+pt-BR:
+  views:
+    users: Usuários
+    user:
+      new: Novo Usuário
+      all: Todos Usuários
+      edit: Editar Usuário
+      destroy: Apagar Usuário

@@ -1,12 +1,10 @@
+<%= render 'layouts/errors', resource: @store %>
 <h1><%= @store.name %></h1>
-
 <%= link_to t('views.store.all'), admin_stores_path %>
 <%= link_to t('views.store.edit'), edit_admin_store_path(@store) %>
 <%= link_to t('views.store.destroy'), admin_store_path(@store), data: {
-    turbo_method: :delete,
-    turbo_confirm: t('general.confirm_destroy')
-} %>
-
+    method: :delete,
+    confirm: t('general.confirm_destroy')}%>
 </br></br>
 <b><%= t('activerecord.attributes.address.cep') %>:</b> <%= @store.cep %> </br>
 <b><%= t('activerecord.attributes.address.state') %>:</b> <%= @store.state %> </br>

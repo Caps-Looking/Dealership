@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'Store Editing' do
+describe 'Store Editing', type: :feature do
   let(:store) { create :store, name: 'John Doe' }
 
   before do

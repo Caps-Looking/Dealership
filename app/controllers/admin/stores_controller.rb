@@ -34,9 +34,11 @@ module Admin
     end
 
     def destroy
-      @store.destroy
-
-      redirect_to admin_stores_path, status: :see_other # https://github.com/rails/rails/issues/44170
+      if @store.destroy
+        redirect_to admin_stores_path, status: :see_other # https://github.com/rails/rails/issues/44170
+      else
+        render :show, status: :unprocessable_entity
+      end
     end
 
     private

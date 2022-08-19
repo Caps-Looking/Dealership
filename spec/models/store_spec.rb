@@ -5,6 +5,7 @@ require 'rails_helper'
 RSpec.describe Store, type: :model do
   describe 'Associations' do
     it { is_expected.to belong_to(:address) }
+    it { is_expected.to have_many(:users) }
   end
 
   describe 'Validations' do

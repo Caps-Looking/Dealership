@@ -1,0 +1,6 @@
+pt-BR:
+  mailers:
+    welcome_mailer:
+      title: "Olá %{name}!"
+      message: Bem vindo ao Dealership!
+      subject: Bem vindo ao Dealership!

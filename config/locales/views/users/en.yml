@@ -1,0 +1,8 @@
+en:
+  views:
+    users: Users
+    user:
+      new: New User
+      all: All Users
+      edit: Edit User
+      destroy: Destroy User

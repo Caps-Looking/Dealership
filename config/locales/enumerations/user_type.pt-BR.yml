@@ -1,0 +1,5 @@
+pt-BR:
+  enumerations:
+    user_type:
+      admin: Administrador
+      store: Loja
