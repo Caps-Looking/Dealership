@@ -45,10 +45,15 @@ module Admin
     end
 
     def user_params
-      allowed_params = %i[username name email user_type password password_confirmation]
-      allowed_params << :store_id if params[:user] && params[:user][:user_type].to_i == UserType::STORE
-
-      params.require(:user).permit(allowed_params)
+      params.require(:user).permit(
+        :username,
+        :name,
+        :email,
+        :user_type,
+        :password,
+        :password_confirmation,
+        :store_id
+      )
     end
   end
 end

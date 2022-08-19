@@ -34,4 +34,30 @@ RSpec.describe User, type: :model do
 
     it { is_expected.to validate_presence_of :user_type }
   end
+
+  describe 'Email Validations' do
+    context 'with string `a`' do
+      subject { build(:user, email: 'a') }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    context 'with string `a@email`' do
+      subject { build(:user, email: 'a@email') }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    context 'with string `a@email.com`' do
+      subject { build(:user, email: 'a@email.com') }
+
+      it { is_expected.to be_valid }
+    end
+
+    context 'with string `a@email.com.br`' do
+      subject { build(:user, email: 'a@email.com.br') }
+
+      it { is_expected.to be_valid }
+    end
+  end
 end
