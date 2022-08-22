@@ -9,7 +9,7 @@ module Admin
     end
 
     def save!
-      store_validation
+      assign_attributes
       save_and_send_mail
 
       @user
@@ -17,7 +17,7 @@ module Admin
 
     private
 
-    def store_validation
+    def assign_attributes
       @params[:store_id] = nil if admin?
       @user.assign_attributes(@params)
     end
@@ -28,7 +28,7 @@ module Admin
 
     def save_and_send_mail
       @user.save!
-      WelcomeMailJob.perform_async(@user.id) if @new_record
+      WelcomeMailJob.perform_later(@user.id) if @new_record
     end
   end
 end

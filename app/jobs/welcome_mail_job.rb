@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class WelcomeMailJob
-  include Sidekiq::Job
+class WelcomeMailJob < ApplicationJob
+  queue_as :default
 
   def perform(user_id)
     @user = User.find(user_id)
