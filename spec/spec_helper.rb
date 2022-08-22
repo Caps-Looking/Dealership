@@ -2,6 +2,7 @@
 
 require 'capybara/rspec'
 require 'database_cleaner/active_record'
+require 'sidekiq/testing'
 
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

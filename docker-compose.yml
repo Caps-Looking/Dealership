@@ -11,5 +11,10 @@ services:
       - PG_DATA=/var/lib/postgresql/data/pgdata
     volumes:
       - postgres_data:/var/lib/postgresql/data
+  redis:
+    container_name: redis
+    image: redis:alpine3.16
+    ports:
+      - 6379:6379
 volumes:
   postgres_data:

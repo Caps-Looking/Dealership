@@ -16,7 +16,6 @@ describe Admin::UsersService, type: :service do
       users_service = described_class.new(User.new, params)
 
       it { expect { users_service.save! }.to change(User, :count).by(1) }
-      it { expect { users_service.save! }.to change { ActionMailer::Base.deliveries.count }.by(1) }
 
       it {
         expect(users_service.save!).to have_attributes(
