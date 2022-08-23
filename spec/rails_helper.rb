@@ -15,12 +15,17 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
+ActiveJob::Base.queue_adapter = :test
+
 # https://relishapp.com/rspec/rspec-rails/docs
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
   config.include FactoryBot::Syntax::Methods
+  config.before do
+    Sidekiq::Worker.clear_all
+  end
 end
 
 Shoulda::Matchers.configure do |config|

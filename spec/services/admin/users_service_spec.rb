@@ -16,7 +16,7 @@ describe Admin::UsersService, type: :service do
       users_service = described_class.new(User.new, params)
 
       it { expect { users_service.save! }.to change(User, :count).by(1) }
-      it { expect { users_service.save! }.to change { ActionMailer::Base.deliveries.count }.by(1) }
+      it { expect { users_service.save! }.to have_enqueued_job(WelcomeMailJob) }
 
       it {
         expect(users_service.save!).to have_attributes(
@@ -46,8 +46,8 @@ describe Admin::UsersService, type: :service do
         user_type: 1
       }
 
+      it { expect { described_class.new(user, params).save! }.not_to have_enqueued_job(WelcomeMailJob) }
       it { expect { described_class.new(user, params).save! }.not_to change(User, :count) }
-      it { expect { described_class.new(user, params).save! }.not_to change { ActionMailer::Base.deliveries.count } }
 
       it {
         expect(described_class.new(user, params).save!).to have_attributes(

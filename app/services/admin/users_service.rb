@@ -9,19 +9,26 @@ module Admin
     end
 
     def save!
-      @params[:store_id] = nil if admin?
-      @user.assign_attributes(@params)
-
-      @user.save!
-      WelcomeMailer.welcome_send(@user).deliver_now if @new_record
+      assign_attributes
+      save_and_send_mail
 
       @user
     end
 
     private
 
+    def assign_attributes
+      @params[:store_id] = nil if admin?
+      @user.assign_attributes(@params)
+    end
+
     def admin?
       @params[:user_type].to_i == UserType::ADMIN
+    end
+
+    def save_and_send_mail
+      @user.save!
+      WelcomeMailJob.perform_later(@user.id) if @new_record
     end
   end
 end
