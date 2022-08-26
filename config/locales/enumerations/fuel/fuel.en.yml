@@ -1,0 +1,8 @@
+en:
+  enumerations:
+    fuel:
+      ethanol: 'Ethanol'
+      gasoline: 'Gasoline'
+      diesel: 'Diesel'
+      electric: 'Electric'
+      hybrid: 'Hybrid'

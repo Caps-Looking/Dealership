@@ -1,0 +1,8 @@
+pt-BR:
+  enumerations:
+    fuel:
+      ethanol: 'Etanol'
+      gasoline: 'Gasolina'
+      diesel: 'Diesel'
+      electric: 'Elétrico'
+      hybrid: 'Híbrido'

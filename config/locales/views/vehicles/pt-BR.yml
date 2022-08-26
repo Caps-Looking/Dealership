@@ -1,0 +1,9 @@
+pt-BR:
+  views:
+    vehicles: Veículos
+    vehicle:
+      new: Novo Veículo
+      edit: Editar Veículo
+      destroy: Apagar Veículo
+      all: Todos os Veículos
+      optionals: Opcionais

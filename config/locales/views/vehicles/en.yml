@@ -1,0 +1,9 @@
+en:
+  views:
+    vehicles: Vehicles
+    vehicle:
+      new: New Vehicle
+      edit: Edit Vehicle
+      destroy: Destroy Vehicle
+      all: All Vehicles
+      optionals: Optionals

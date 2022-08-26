@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      vehicle_optional:
+        one: Opcional do Veículo
+        other: Opcionais do Veículo
+    attributes:
+      vehicle_optional:
+        name: Nome
+        description: Descrição
+        vehicle: Veículo
+        vehicles: Veículos

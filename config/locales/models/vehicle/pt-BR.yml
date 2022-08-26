@@ -1,0 +1,22 @@
+pt-BR:
+  activerecord:
+    models:
+      vehicle:
+        one: Veículo
+        other: Veículos
+    attributes:
+      vehicle:
+        name: Nome
+        plate: Placa
+        brand: Marca
+        model: Modelo
+        version: Versão
+        year: Ano
+        transmission: Câmbio
+        fuel: Combustível
+        color: Cor
+        mileage: Quilometragem
+        price: Preço
+        description: Descrição
+        store: Loja
+        stores: Lojas

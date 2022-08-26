@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_16_131937) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_24_124445) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,35 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_16_131937) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  create_table "vehicle_optionals", force: :cascade do |t|
+    t.string "name", limit: 50, null: false
+    t.text "description"
+    t.bigint "vehicle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["vehicle_id"], name: "index_vehicle_optionals_on_vehicle_id"
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string "name", limit: 50, null: false
+    t.string "plate", null: false
+    t.string "brand", limit: 50, null: false
+    t.string "model", limit: 50, null: false
+    t.string "version", limit: 50, null: false
+    t.string "year", null: false
+    t.integer "transmission", null: false
+    t.integer "fuel", null: false
+    t.string "color", limit: 50, null: false
+    t.integer "mileage", null: false
+    t.decimal "price", precision: 12, scale: 2, null: false
+    t.text "description"
+    t.bigint "store_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["store_id"], name: "index_vehicles_on_store_id"
+  end
+
   add_foreign_key "stores", "addresses"
   add_foreign_key "users", "stores"
+  add_foreign_key "vehicles", "stores"
 end

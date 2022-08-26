@@ -1,0 +1,29 @@
+<%= link_to t('views.vehicle.all'), admin_vehicles_path %>
+</br></br>
+<%= simple_form_for [:admin, @vehicle ] do |f| %>
+  <%= f.input :name, autofocus: true %>
+  <%= f.input :plate, autofocus: true %>
+  <%= f.input :brand, autofocus: true %>
+  <%= f.input :model, autofocus: true %>
+  <%= f.input :version, autofocus: true %>
+  <%= f.input :year, autofocus: true %>
+  <%= f.input :transmission, collection: Transmission.to_a %>
+  <%= f.input :fuel, collection: Fuel.to_a %>
+  <%= f.input :color, autofocus: true %>
+  <%= f.input :mileage, autofocus: true %>
+  <%= f.input :price, autofocus: true %>
+  <%= f.input :description, autofocus: true %>
+
+  </br></br>
+  <h3><%= t('views.vehicle.optionals') %></h3>
+
+  <%= f.simple_fields_for :vehicle_optionals do |vo| %>
+    <%= render 'admin/vehicle_optionals/fields', f: vo %>
+  <% end %>
+
+  <div class='links'>
+    <%= link_to_add_association t('views.vehicle_optional.add'), f, :vehicle_optionals, partial: 'admin/vehicle_optionals/fields' %>
+  </div>
+
+  <%= f.button :submit %>
+<% end %>

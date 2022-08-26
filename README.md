@@ -14,7 +14,7 @@ Study project of car dealership
 
 ### Configuration
 
-- Run `docker compose up` (port `5432` must be available)
+- Run `docker compose up` (port `5432`and `6379` must be available)
 - Run `bundle install`
 
 ### Database creation

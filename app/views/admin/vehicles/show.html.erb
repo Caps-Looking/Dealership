@@ -1,0 +1,28 @@
+<%= render 'layouts/errors', resource: @vehicle %>
+<h1><%= @vehicle.name %></h1>
+<%= link_to t('views.vehicle.all'), admin_vehicles_path %>
+<%= link_to t('views.vehicle.edit'), edit_admin_vehicle_path(@vehicle) %>
+<%= link_to t('views.vehicle.destroy'), admin_vehicle_path(@vehicle), data: {
+    method: :delete,
+    confirm: t('general.confirm_destroy')}%>
+</br></br>
+<b><%= t('activerecord.attributes.vehicle.plate') %>:</b> <%= @vehicle.plate %> </br>
+<b><%= t('activerecord.attributes.vehicle.brand') %>:</b> <%= @vehicle.brand %> </br>
+<b><%= t('activerecord.attributes.vehicle.model') %>:</b> <%= @vehicle.model %> </br>
+<b><%= t('activerecord.attributes.vehicle.version') %>:</b> <%= @vehicle.version %> </br>
+<b><%= t('activerecord.attributes.vehicle.year') %>:</b> <%= @vehicle.year %> </br>
+<b><%= t('activerecord.attributes.vehicle.transmission') %>:</b> <%= @vehicle.transmission_humanize %> </br>
+<b><%= t('activerecord.attributes.vehicle.fuel') %>:</b> <%= @vehicle.fuel_humanize %> </br>
+<b><%= t('activerecord.attributes.vehicle.color') %>:</b> <%= @vehicle.color %> </br>
+<b><%= t('activerecord.attributes.vehicle.mileage') %>:</b> <%= @vehicle.mileage %> </br>
+<b><%= t('activerecord.attributes.vehicle.price') %>:</b> <%= @vehicle.price %> </br>
+<b><%= t('activerecord.attributes.vehicle.store') %>:</b> <%= @vehicle.store.name %> </br>
+<b><%= t('activerecord.attributes.vehicle.description') %>:</b> <%= @vehicle.description %>
+
+<% unless @vehicle.vehicle_optionals.empty? %>
+  <h3><%= t('views.vehicle.optionals') %></h3>
+  <% @vehicle.vehicle_optionals.each do |optional| %>
+    <b><%= t('activerecord.attributes.vehicle_optional.name') %>:</b> <%= optional.name %> </br>
+    <b><%= t('activerecord.attributes.vehicle_optional.description') %>:</b> <%= optional.description %> </br></br>
+  <% end %>
+<% end %>

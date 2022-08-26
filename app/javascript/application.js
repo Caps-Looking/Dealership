@@ -3,3 +3,5 @@
 //= require jquery_ujs
 //= require jquery.mask
 import "controllers"
+import "jquery"
+import "@nathanvda/cocoon"

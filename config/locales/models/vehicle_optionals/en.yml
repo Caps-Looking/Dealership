@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    models:
+      vehicle_optional:
+        one: Vehicle Optional
+        other: Vehicle Optionals
+    attributes:
+      vehicle_optional:
+        name: Name
+        description: Description
+        vehicle: Vehicle
+        vehicles: Vehicles

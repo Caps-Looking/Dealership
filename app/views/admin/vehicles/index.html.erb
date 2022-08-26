@@ -1,0 +1,16 @@
+<h1><%= t('views.vehicles')%></h1>
+<%= link_to t('views.vehicle.new'), new_admin_vehicle_path %>
+<ul>
+    <% @vehicles.each do |vehicle| %>
+        <li>
+            <%= vehicle.id %>
+            <a href="<%= admin_vehicle_path(vehicle) %>">
+                <%= vehicle.name %>
+            </a>
+            <%= vehicle.brand %>
+            <%= vehicle.model %>
+            <%= vehicle.version %>
+            <%= vehicle.year %>
+        </li>
+    <% end %>
+</ul>
