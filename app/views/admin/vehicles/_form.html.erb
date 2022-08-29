@@ -6,7 +6,7 @@
   <%= f.input :brand, autofocus: true %>
   <%= f.input :model, autofocus: true %>
   <%= f.input :version, autofocus: true %>
-  <%= f.input :year, autofocus: true %>
+  <%= f.input :year, collection: (1.year.from_now.year).downto(1900), autofocus: true %>
   <%= f.input :transmission, collection: Transmission.to_a %>
   <%= f.input :fuel, collection: Fuel.to_a %>
   <%= f.input :color, autofocus: true %>
@@ -27,3 +27,4 @@
 
   <%= f.button :submit %>
 <% end %>
+<%= javascript_import_module_tag "vehicle" %>

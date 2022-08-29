@@ -63,11 +63,11 @@ RSpec.describe 'Vehicles', type: :request do
       let(:vehicle_params) do
         {
           name: 'Test Vehicle',
-          plate: '12345',
+          plate: 'ABC-1234',
           brand: 'Ford',
           model: 'Ka',
           version: '1.0',
-          year: '11/12',
+          year: Time.zone.today.year,
           transmission: 1,
           fuel: 1,
           color: 'Blue',
@@ -88,7 +88,7 @@ RSpec.describe 'Vehicles', type: :request do
         expect { create_vehicle }.to change(Vehicle, :count).by 1
         expect(assigns(:vehicle)).to have_attributes(
           name: 'Test Vehicle',
-          plate: '12345',
+          plate: 'ABC-1234',
           vehicle_optionals: match_array([have_attributes(name: 'An optional')])
         )
       end
@@ -98,7 +98,7 @@ RSpec.describe 'Vehicles', type: :request do
       let(:vehicle_params) do
         {
           name: 'Test Vehicle',
-          plate: '12345',
+          plate: 'ABC-1234',
           brand: 'Ford',
           model: 'Ka',
           version: '1.0',
@@ -120,7 +120,7 @@ RSpec.describe 'Vehicles', type: :request do
       put admin_vehicle_path(vehicle), params: { vehicle: vehicle_params }
     end
 
-    let(:vehicle) { create(:vehicle, name: 'Test Vehicle', plate: '12345') }
+    let(:vehicle) { create(:vehicle, name: 'Test Vehicle', plate: 'ABC-1234') }
     let(:vehicle_optional) { create(:vehicle_optional, vehicle:) }
 
     context 'with valid params' do
@@ -141,7 +141,7 @@ RSpec.describe 'Vehicles', type: :request do
         expect(assigns(:vehicle)).to have_attributes(
           name: 'Test Vehicle 2',
           color: 'Green',
-          plate: '12345',
+          plate: 'ABC-1234',
           vehicle_optionals: match_array([have_attributes(
             id: vehicle_optional.id,
             name: 'A different optional'

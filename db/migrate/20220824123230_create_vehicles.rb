@@ -8,7 +8,7 @@ class CreateVehicles < ActiveRecord::Migration[7.0]
       t.string :brand, limit: 50, null: false
       t.string :model, limit: 50, null: false
       t.string :version, limit: 50, null: false
-      t.string :year, null: false
+      t.integer :year, null: false
       t.integer :transmission, null: false
       t.integer :fuel, null: false
       t.string :color, limit: 50, null: false

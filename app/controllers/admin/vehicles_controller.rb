@@ -16,7 +16,7 @@ module Admin
 
     def create
       @vehicle = Vehicle.new vehicle_params_create
-      @vehicle.store = Store.all.first
+      @vehicle.store = Store.first
 
       if @vehicle.save
         redirect_to admin_vehicle_path(@vehicle)
@@ -47,22 +47,25 @@ module Admin
       @vehicle = Vehicle.find(params[:id])
     end
 
+    def permitted_vehicle_params
+      %i[
+        name plate brand
+        model version year
+        transmission fuel color
+        mileage price description
+      ]
+    end
+
     def vehicle_params_update
       params.require(:vehicle).permit(
-        :name, :plate, :brand,
-        :model, :version, :year,
-        :transmission, :fuel, :color,
-        :mileage, :price, :description,
+        permitted_vehicle_params,
         vehicle_optionals_attributes: %i[id name description]
       )
     end
 
     def vehicle_params_create
       params.require(:vehicle).permit(
-        :name, :plate, :brand,
-        :model, :version, :year,
-        :transmission, :fuel, :color,
-        :mileage, :price, :description,
+        permitted_vehicle_params,
         vehicle_optionals_attributes: %i[name description]
       )
     end

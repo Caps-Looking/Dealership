@@ -13,7 +13,7 @@ RSpec.describe Vehicle, type: :model do
     it { is_expected.to validate_length_of(:name).is_at_least(2).is_at_most(50) }
 
     it { is_expected.to validate_presence_of(:plate) }
-    it { is_expected.to validate_length_of(:plate).is_at_least(2).is_at_most(50) }
+    it { is_expected.to validate_length_of(:plate).is_equal_to(8) }
 
     it { is_expected.to validate_presence_of(:brand) }
     it { is_expected.to validate_length_of(:brand).is_at_least(2).is_at_most(50) }
@@ -28,7 +28,7 @@ RSpec.describe Vehicle, type: :model do
     it { is_expected.to validate_length_of(:color).is_at_least(2).is_at_most(50) }
 
     it { is_expected.to validate_presence_of(:year) }
-    it { is_expected.to validate_length_of(:year).is_equal_to(5) }
+    it { is_expected.to validate_numericality_of(:year).only_integer.is_greater_than_or_equal_to(1900).is_less_than_or_equal_to(1.year.from_now.year) }
 
     it { is_expected.to validate_presence_of(:transmission) }
 
@@ -58,6 +58,32 @@ RSpec.describe Vehicle, type: :model do
 
     context 'with 99 999 999 999.99' do
       subject { build(:vehicle, price: '99_999_999_999.99') }
+
+      it { is_expected.not_to be_valid }
+    end
+  end
+
+  describe 'Plate validations' do
+    context 'with ABC-1234' do
+      subject { build(:vehicle) }
+
+      it { is_expected.to be_valid }
+    end
+
+    context 'with 123-ABCD' do
+      subject { build(:vehicle, plate: '123-ABCD') }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    context 'with abd-1234' do
+      subject { build(:vehicle, plate: 'abc-1234') }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    context 'with ASDFGHGHHJJ1234567' do
+      subject { build(:vehicle, plate: 'ASDFGHGHHJJ1234567') }
 
       it { is_expected.not_to be_valid }
     end
