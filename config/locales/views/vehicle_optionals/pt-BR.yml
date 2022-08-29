@@ -1,0 +1,5 @@
+pt-BR:
+  views:
+    vehicle_optional:
+      add: Adicionar Opcional
+      remove: Remover Opcional

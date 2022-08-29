@@ -9,3 +9,5 @@ en:
         name: Name
         user: User
         users: Users
+        vehicle: Vehicle
+        vehicles: Vehicles

@@ -1,0 +1,5 @@
+en:
+  views:
+    vehicle_optional:
+      add: Add Optional
+      remove: Remove Optional

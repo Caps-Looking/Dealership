@@ -1,0 +1,5 @@
+en:
+  enumerations:
+    transmission:
+      at: 'Automatic'
+      mt: 'Manual'

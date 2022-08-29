@@ -6,6 +6,7 @@ RSpec.describe Store, type: :model do
   describe 'Associations' do
     it { is_expected.to belong_to(:address) }
     it { is_expected.to have_many(:users) }
+    it { is_expected.to have_many(:vehicles) }
   end
 
   describe 'Validations' do

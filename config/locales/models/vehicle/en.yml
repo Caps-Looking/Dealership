@@ -1,0 +1,22 @@
+en:
+  activerecord:
+    models:
+      vehicle:
+        one: Vehicle
+        other: Vehicles
+    attributes:
+      vehicle:
+        name: Name
+        plate: Plate
+        brand: Brand
+        model: Model
+        version: Version
+        year: Year
+        transmission: Transmission
+        fuel: Fuel
+        color: Color
+        mileage: Mileage
+        price: Price
+        description: Description
+        store: Store
+        stores: Stores

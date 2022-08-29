@@ -1,0 +1,5 @@
+pt-BR:
+  enumerations:
+    transmission:
+      at: 'Automático'
+      mt: 'Manual'
