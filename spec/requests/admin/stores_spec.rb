@@ -154,8 +154,7 @@ RSpec.describe 'Stores', type: :request do
       let(:store) { create(:store) }
       let!(:vehicle) { create(:vehicle, store:) }
 
-      it { expect { delete_store }.to change(Store, :count).by(-1) }
-      it { expect { delete_store }.to change(Vehicle, :count).by(-1) }
+      it { expect(delete_store).to render_template :show }
     end
 
     context 'without associations' do

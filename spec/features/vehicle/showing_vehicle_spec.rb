@@ -18,7 +18,7 @@ describe 'Vehicle Showing', type: :feature do
       expect(page).to have_text vehicle.name && vehicle.plate && vehicle.brand && vehicle.model &&
                                 vehicle.version && vehicle.year && vehicle.transmission_humanize &&
                                 vehicle.fuel_humanize && vehicle.color && vehicle.mileage &&
-                                vehicle.price && vehicle.store.name
+                                vehicle.price
       expect(page).not_to have_text I18n.t('views.vehicle.optionals')
     }
   end

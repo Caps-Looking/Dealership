@@ -59,7 +59,7 @@ module Admin
     def vehicle_params_update
       params.require(:vehicle).permit(
         permitted_vehicle_params,
-        vehicle_optionals_attributes: %i[id name description]
+        vehicle_optionals_attributes: %i[id name description _destroy]
       )
     end
 

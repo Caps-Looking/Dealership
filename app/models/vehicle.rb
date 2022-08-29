@@ -7,7 +7,7 @@ class Vehicle < ApplicationRecord
   has_many :vehicle_optionals, dependent: :destroy
   belongs_to :store
 
-  accepts_nested_attributes_for :vehicle_optionals
+  accepts_nested_attributes_for :vehicle_optionals, allow_destroy: true
 
   validates :name, :brand, :model, :version, :color, presence: true, length: { in: 2..50 }
   validates :transmission, :fuel, presence: true

@@ -121,7 +121,7 @@ RSpec.describe 'Vehicles', type: :request do
     end
 
     let(:vehicle) { create(:vehicle, name: 'Test Vehicle', plate: 'ABC-1234') }
-    let(:vehicle_optional) { create(:vehicle_optional, vehicle:) }
+    let!(:vehicle_optional) { create(:vehicle_optional, vehicle:) }
 
     context 'with valid params' do
       let(:vehicle_params) do
@@ -137,7 +137,7 @@ RSpec.describe 'Vehicles', type: :request do
       it { expect(put_vehicle).to redirect_to admin_vehicle_path(vehicle) }
 
       it 'updates the correct vehicle' do
-        expect { put_vehicle }.to change(Vehicle, :count).by 1
+        put_vehicle
         expect(assigns(:vehicle)).to have_attributes(
           name: 'Test Vehicle 2',
           color: 'Green',
@@ -147,6 +147,22 @@ RSpec.describe 'Vehicles', type: :request do
             name: 'A different optional'
           )])
         )
+      end
+    end
+
+    context 'with destroying optional params' do
+      let(:vehicle_params) do
+        {
+          vehicle_optionals_attributes: [
+            { id: vehicle_optional.id, _destroy: 1 }
+          ]
+        }
+      end
+
+      it { expect(put_vehicle).to redirect_to admin_vehicle_path(vehicle) }
+
+      it 'removes optional' do
+        expect { put_vehicle }.to change(VehicleOptional, :count).by(-1)
       end
     end
 

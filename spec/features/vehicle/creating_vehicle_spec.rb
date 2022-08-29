@@ -17,7 +17,7 @@ describe 'Vehicle Creating', type: :feature do
       fill_in I18n.t('activerecord.attributes.vehicle.brand'), with: 'Ford'
       fill_in I18n.t('activerecord.attributes.vehicle.model'), with: 'Ka'
       fill_in I18n.t('activerecord.attributes.vehicle.version'), with: '1.0'
-      find_by_id('vehicle_year').find("option[value='#{Time.zone.today.year}']").click
+      select Time.zone.today.year, from: I18n.t('activerecord.attributes.vehicle.year')
       find_by_id('vehicle_transmission').find("option[value='#{Transmission::AT}']").click
       find_by_id('vehicle_fuel').find("option[value='#{Fuel::GASOLINE}']").click
       fill_in I18n.t('activerecord.attributes.vehicle.color'), with: 'Blue'
