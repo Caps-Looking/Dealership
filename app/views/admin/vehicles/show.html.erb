@@ -25,3 +25,10 @@
     <b><%= t('activerecord.attributes.vehicle_optional.description') %>:</b> <%= optional.description %> </br></br>
   <% end %>
 <% end %>
+
+<% unless @vehicle.vehicle_images.empty? %>
+  <h3><%= t('views.vehicle.images') %></h3>
+  <% @vehicle.vehicle_images.each do |image| %>
+    <%= image_tag image.image_url, style: 'height:20em' %>
+  <% end %>
+<% end %>

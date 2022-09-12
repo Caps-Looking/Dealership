@@ -1,0 +1,5 @@
+pt-BR:
+  views:
+    vehicle_image:
+      add: Adicionar Imagem
+      remove: Remover Imagem

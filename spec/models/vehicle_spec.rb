@@ -6,6 +6,7 @@ RSpec.describe Vehicle, type: :model do
   describe 'Associations' do
     it { is_expected.to belong_to(:store) }
     it { is_expected.to have_many(:vehicle_optionals) }
+    it { is_expected.to have_many(:vehicle_images) }
   end
 
   describe 'Validations' do
