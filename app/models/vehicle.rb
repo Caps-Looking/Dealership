@@ -11,7 +11,7 @@ class Vehicle < ApplicationRecord
   accepts_nested_attributes_for :vehicle_optionals, allow_destroy: true
   accepts_nested_attributes_for :vehicle_images, allow_destroy: true
 
-  validates :vehicle_images, length: { maximum: 3 }
+  validates :vehicle_images, length: { maximum: 10 }
   validates :name, :brand, :model, :version, :color, presence: true, length: { in: 2..50 }
   validates :transmission, :fuel, presence: true
   validates :description, length: { maximum: 2000 }

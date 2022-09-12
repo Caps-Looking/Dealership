@@ -80,7 +80,7 @@ RSpec.describe 'Vehicles', type: :request do
             }
           ],
           vehicle_images_attributes: [
-            image: attach_image_data('/spec/factories/pepe.png', 'pepe.png')
+            image: attach_image_data('/spec/support/fixtures/pepe.png', 'pepe.png')
           ]
         }
       end

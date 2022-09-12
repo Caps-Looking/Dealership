@@ -23,7 +23,7 @@ describe 'Vehicle Editing', type: :feature do
   end
 
   context 'when changing optional' do
-    it {
+    it do
       within first('.nested-fields') do
         fill_in I18n.t('activerecord.attributes.vehicle_optional.name'), with: 'Optional name'
       end
@@ -31,11 +31,11 @@ describe 'Vehicle Editing', type: :feature do
       find('input[type="submit"]').click
 
       expect(page).not_to have_text('An optional')
-    }
+    end
   end
 
   context 'when removing image' do
-    it {
+    it do
       sleep 0.5
 
       within all('.nested-fields')[1] do
@@ -45,7 +45,7 @@ describe 'Vehicle Editing', type: :feature do
       find('input[type="submit"]').click
 
       expect(page).not_to have_css('img')
-    }
+    end
   end
 
   context 'with invalid params' do

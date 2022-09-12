@@ -30,7 +30,7 @@ describe 'Vehicle Creating', type: :feature do
       end
 
       find('a', text: I18n.t('views.vehicle_image.add')).click
-      attach_file(nil, 'spec/factories/pepe.png')
+      attach_file(nil, 'spec/support/fixtures/pepe.png')
 
       find('input[type="submit"]').click
 
