@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_24_124445) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_29_214840) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_124445) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  create_table "vehicle_images", force: :cascade do |t|
+    t.text "image_data"
+    t.bigint "vehicle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["vehicle_id"], name: "index_vehicle_images_on_vehicle_id"
+  end
+
   create_table "vehicle_optionals", force: :cascade do |t|
     t.string "name", limit: 50, null: false
     t.text "description"
@@ -83,5 +91,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_124445) do
 
   add_foreign_key "stores", "addresses"
   add_foreign_key "users", "stores"
+  add_foreign_key "vehicle_images", "vehicles"
   add_foreign_key "vehicles", "stores"
 end

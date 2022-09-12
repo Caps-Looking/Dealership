@@ -1,0 +1,13 @@
+en:
+  activerecord:
+    models:
+      vehicle_image:
+        one: Vehicle Image
+        other: Vehicle Images
+    errors:
+      models:
+        vehicle_image:
+          attributes:
+            image:
+              not_image: The file is not an image
+              too_large: "The file maximum size is %{max}"

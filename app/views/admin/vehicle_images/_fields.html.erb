@@ -1,0 +1,11 @@
+<div class='nested-fields'>
+  <%= f.hidden_field :image, value: f.object.cached_image_data %>
+  <%= image_tag f.object.image_url, style: 'height:20em' if f.object.cached_image_data and not f.object.errors.any? %>
+  <% unless f.object.id.nil? %>
+    <%= image_tag f.object.image_url, style: 'height:20em' %>
+  <% else %>
+    <%= f.file_field :image, multiple: false %>
+  <% end %>
+  <%= f.error :image %>
+  <%= link_to_remove_association t('views.vehicle_image.remove'), f %>
+</div>

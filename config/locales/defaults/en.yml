@@ -2,3 +2,4 @@ en:
   general:
     confirm_destroy: Do you really want to destroy?
     back: Back
+    max_amount: "have to be at maximum %{amount}."

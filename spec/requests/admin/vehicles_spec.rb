@@ -78,6 +78,9 @@ RSpec.describe 'Vehicles', type: :request do
               name: 'An optional',
               description: 'Optional description'
             }
+          ],
+          vehicle_images_attributes: [
+            image: attach_image_data('/spec/factories/pepe.png', 'pepe.png')
           ]
         }
       end
@@ -89,7 +92,8 @@ RSpec.describe 'Vehicles', type: :request do
         expect(assigns(:vehicle)).to have_attributes(
           name: 'Test Vehicle',
           plate: 'ABC-1234',
-          vehicle_optionals: match_array([have_attributes(name: 'An optional')])
+          vehicle_optionals: match_array([have_attributes(name: 'An optional')]),
+          vehicle_images: match_array([have_attributes(image_data: include('pepe.png'))])
         )
       end
     end
@@ -122,6 +126,7 @@ RSpec.describe 'Vehicles', type: :request do
 
     let(:vehicle) { create(:vehicle, name: 'Test Vehicle', plate: 'ABC-1234') }
     let!(:vehicle_optional) { create(:vehicle_optional, vehicle:) }
+    let!(:vehicle_image) { create(:vehicle_image, vehicle:) }
 
     context 'with valid params' do
       let(:vehicle_params) do
@@ -166,6 +171,22 @@ RSpec.describe 'Vehicles', type: :request do
       end
     end
 
+    context 'with destroying image params' do
+      let(:vehicle_params) do
+        {
+          vehicle_images_attributes: [
+            { id: vehicle_image.id, _destroy: 1 }
+          ]
+        }
+      end
+
+      it { expect(put_vehicle).to redirect_to admin_vehicle_path(vehicle) }
+
+      it 'removes image' do
+        expect { put_vehicle }.to change(VehicleImage, :count).by(-1)
+      end
+    end
+
     context 'with invalid params' do
       let(:vehicle_params) do
         { name: ' ' }
@@ -182,9 +203,11 @@ RSpec.describe 'Vehicles', type: :request do
 
     let!(:vehicle) { create(:vehicle) }
     let!(:vehicle_optional) { create(:vehicle_optional, vehicle:) }
+    let!(:vehicle_image) { create(:vehicle_image, vehicle:) }
 
     it { expect { delete_vehicle }.to change(Vehicle, :count).by(-1) }
     it { expect { delete_vehicle }.to change(VehicleOptional, :count).by(-1) }
+    it { expect { delete_vehicle }.to change(VehicleImage, :count).by(-1) }
     it { expect(delete_vehicle).to redirect_to admin_vehicles_path }
   end
 end

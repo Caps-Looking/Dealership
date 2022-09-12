@@ -7,6 +7,7 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'database_cleaner_helper'
+require 'support/file_helper'
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
@@ -23,6 +24,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
   config.include FactoryBot::Syntax::Methods
+  config.include FileHelper
   config.before do
     Sidekiq::Worker.clear_all
   end

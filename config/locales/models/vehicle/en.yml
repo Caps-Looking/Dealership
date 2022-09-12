@@ -20,3 +20,10 @@ en:
         description: Description
         store: Store
         stores: Stores
+        vehicle_images: Images
+    errors:
+      models:
+        vehicle:
+          attributes:
+            vehicle_images:
+              too_long: "The maximum amount of images is %{count}"

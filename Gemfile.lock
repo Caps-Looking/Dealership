@@ -88,6 +88,7 @@ GEM
     cocoon (1.2.15)
     concurrent-ruby (1.1.10)
     connection_pool (2.2.5)
+    content_disposition (1.0.0)
     crass (1.0.6)
     database_cleaner-active_record (2.0.1)
       activerecord (>= 5.a)
@@ -104,6 +105,8 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
     digest (3.1.0)
+    down (5.3.1)
+      addressable (~> 2.8)
     email_validator (2.2.3)
       activemodel
     enumerate_it (3.2.2)
@@ -265,6 +268,9 @@ GEM
       websocket (~> 1.0)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
+    shrine (3.4.0)
+      content_disposition (~> 1.0)
+      down (~> 5.1)
     sidekiq (6.5.4)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
@@ -337,6 +343,7 @@ DEPENDENCIES
   rubocop-rspec (~> 2.12, >= 2.12.1)
   selenium-webdriver
   shoulda-matchers (~> 5.1)
+  shrine (~> 3.0)
   sidekiq
   simple_form
   sprockets-rails

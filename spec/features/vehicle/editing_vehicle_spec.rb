@@ -5,6 +5,7 @@ require 'rails_helper'
 describe 'Vehicle Editing', type: :feature do
   let(:vehicle) { create :vehicle, name: 'Vehicle Test' }
   let!(:vehicle_optional) { create :vehicle_optional, vehicle: }
+  let!(:vehicle_image) { create :vehicle_image, vehicle: }
 
   before do
     visit admin_vehicle_path(vehicle)
@@ -21,15 +22,29 @@ describe 'Vehicle Editing', type: :feature do
     end
   end
 
-  context 'when removing optional' do
+  context 'when changing optional' do
     it {
-      within '.nested-fields' do
+      within first('.nested-fields') do
         fill_in I18n.t('activerecord.attributes.vehicle_optional.name'), with: 'Optional name'
       end
 
       find('input[type="submit"]').click
 
       expect(page).not_to have_text('An optional')
+    }
+  end
+
+  context 'when removing image' do
+    it {
+      sleep 0.5
+
+      within all('.nested-fields')[1] do
+        find('a', text: I18n.t('views.vehicle_image.remove')).click
+      end
+
+      find('input[type="submit"]').click
+
+      expect(page).not_to have_css('img')
     }
   end
 

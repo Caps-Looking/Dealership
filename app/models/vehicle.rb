@@ -5,10 +5,13 @@ class Vehicle < ApplicationRecord
   has_enumeration_for :fuel, create_helpers: true
 
   has_many :vehicle_optionals, dependent: :destroy
+  has_many :vehicle_images, dependent: :destroy
   belongs_to :store
 
   accepts_nested_attributes_for :vehicle_optionals, allow_destroy: true
+  accepts_nested_attributes_for :vehicle_images, allow_destroy: true
 
+  validates :vehicle_images, length: { maximum: 3 }
   validates :name, :brand, :model, :version, :color, presence: true, length: { in: 2..50 }
   validates :transmission, :fuel, presence: true
   validates :description, length: { maximum: 2000 }

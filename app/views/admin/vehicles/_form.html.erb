@@ -25,6 +25,18 @@
     <%= link_to_add_association t('views.vehicle_optional.add'), f, :vehicle_optionals, partial: 'admin/vehicle_optionals/fields' %>
   </div>
 
+  </br></br>
+  <h3><%= t('views.vehicle.images') %></h3>
+  <%= f.error :vehicle_images %>
+
+  <%= f.simple_fields_for :vehicle_images do |vi| %>
+    <%= render 'admin/vehicle_images/fields', f: vi %>
+  <% end %>
+
+  <div class='links'>
+    <%= link_to_add_association t('views.vehicle_image.add'), f, :vehicle_images, partial: 'admin/vehicle_images/fields' %>
+  </div>
+
   <%= f.button :submit %>
 <% end %>
 <%= javascript_import_module_tag "vehicle" %>

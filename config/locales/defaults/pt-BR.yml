@@ -2,3 +2,4 @@ pt-BR:
   general:
     confirm_destroy: Deseja realmente apagar?
     back: Voltar
+    max_amount: "devem ser no máximo %{amount}."
