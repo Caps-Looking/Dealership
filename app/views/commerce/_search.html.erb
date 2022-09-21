@@ -1,0 +1,42 @@
+<%= form_with url: commerce_index_path, method: :get do |f| %>
+    <%= f.label t('views.commerce.search') %>
+    <%= f.text_field :search %> </br>
+
+    <%= f.label t('views.commerce.store') %>
+    <%= f.collection_select :store_id, Store.all, :id, :name, include_blank: true %></br>
+
+    <%= f.label t('views.commerce.price') %>
+    <%= f.text_field 'price[min]' %> 
+
+    <%= f.label t('views.commerce.to') %>
+    <%= f.text_field 'price[max]' %></br> 
+
+    <%= f.label t('views.commerce.mileage') %>
+    <%= f.text_field 'mileage[min]' %>
+
+    <%= f.label t('views.commerce.to') %>
+    <%= f.text_field 'mileage[max]' %></br>
+
+    <%= f.label t('views.commerce.year') %>
+    <%= f.select 'year[min]', (1.year.from_now.year).downto(1900), include_blank: true %>
+
+    <%= f.label t('views.commerce.to') %>
+    <%= f.select 'year[max]', (1.year.from_now.year).downto(1900), include_blank: true %></br>
+
+    <%= f.label t('views.commerce.transmission') %>
+    <%= f.select :transmission, Transmission.to_a, include_blank: true %></br>
+
+    <%= f.label t('views.commerce.fuel') %>
+    <%= f.collection_check_boxes :fuel, Fuel.to_a, :last, :first %></br>
+
+    <%= f.label t('views.commerce.optional') %>
+    <%= f.text_field :optional %></br>
+
+    <%= f.label t('views.commerce.order_by') %>
+    <%= f.select 'sorting[field]', SearchOrderFields.to_a, include_blank: true %>
+    <%= f.select 'sorting[direction]', OrderByDirection.to_a, include_blank: true %>
+
+    </br>
+    <%= f.submit t('views.commerce.search') %>
+<% end %>
+

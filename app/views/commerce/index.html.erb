@@ -1,0 +1,33 @@
+<h1><%= t('views.vehicles')%></h1>
+
+<%= render 'search' %>
+
+<table>
+    <tr>
+        <th><%= t('activerecord.attributes.vehicle.name') %></th>
+        <th><%= t('activerecord.attributes.vehicle.brand') %></th>
+        <th><%= t('activerecord.attributes.vehicle.model') %></th>
+        <th><%= t('activerecord.attributes.vehicle.version') %></th>
+        <th><%= t('activerecord.attributes.vehicle.color') %></th>
+        <th><%= t('activerecord.attributes.vehicle.price') %></th>
+        <th><%= t('activerecord.attributes.vehicle.mileage') %></th>
+        <th><%= t('activerecord.attributes.vehicle.store') %></th>
+    </tr>
+    <% @vehicles.each do |vehicle| %>
+        <tr>
+            <td>
+                <a href="<%= commerce_path(vehicle) %>">
+                    <%= vehicle.name %>
+                </a>
+            </td>
+            <td><%= vehicle.brand %></td>
+            <td><%= vehicle.model %></td>
+            <td><%= vehicle.version %></td>
+            <td><%= vehicle.color %></td>
+            <td><%= vehicle.price %></td>
+            <td><%= vehicle.mileage %></td>
+            <td><%= vehicle.store.name %></td>
+        </tr>
+    <% end %>
+</table>
+<%= paginate @vehicles %>

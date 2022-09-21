@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :vehicle do
-    name { Faker::Vehicle.unique.make_and_model }
+    name { Faker::Vehicle.make_and_model }
     plate { 'ABC-1234' }
     brand { Faker::Vehicle.make }
     model { Faker::Vehicle.model }
