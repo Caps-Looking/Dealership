@@ -9,7 +9,7 @@ describe 'Vehicle Searching', type: :feature do
   before { visit commerce_index_path }
 
   context 'with searching' do
-    let!(:palio) { create(:vehicle, name: 'palio', brand: 'fiat', model: 'weekend', version: '1.0', description: 'fiat palio', color: 'red', store: store1, price: 10, mileage: 10, year: 2000, transmission: Transmission::AT, fuel: Fuel::GASOLINE, ) }
+    let!(:palio) { create(:vehicle, name: 'palio', brand: 'fiat', model: 'weekend', version: '1.0', description: 'fiat palio', color: 'red', store: store1, price: 10, mileage: 10, year: 2000, transmission: Transmission::AT, fuel: Fuel::GASOLINE) }
     let!(:corsa) { create(:vehicle, name: 'corsa', brand: 'chevrolet', model: 'turbo', version: '1.5', description: 'chevrolet corsa', color: 'black', store: store2, price: 100, mileage: 100, year: 2005, transmission: Transmission::MT, fuel: Fuel::ETHANOL) }
     let!(:fiesta) { create(:vehicle, name: 'fiesta', brand: 'ford', model: 'basic', version: '2.0', description: 'ford fiesta', color: 'silver', store: store2, price: 1000, mileage: 1000, year: 2010, transmission: Transmission::MT, fuel: Fuel::DIESEL) }
 
@@ -242,15 +242,15 @@ describe 'Vehicle Searching', type: :feature do
 
       sleep 0.5
 
-      within(:xpath, "//table/tbody/tr[2]/td[1]") do
+      within(:xpath, '//table/tbody/tr[2]/td[1]') do
         expect(page).to have_text('corsa')
       end
 
-      within(:xpath, "//table/tbody/tr[3]/td[1]") do
+      within(:xpath, '//table/tbody/tr[3]/td[1]') do
         expect(page).to have_text('palio')
       end
 
-      within(:xpath, "//table/tbody/tr[4]/td[1]") do
+      within(:xpath, '//table/tbody/tr[4]/td[1]') do
         expect(page).to have_text('fiesta')
       end
     end
@@ -262,15 +262,15 @@ describe 'Vehicle Searching', type: :feature do
 
       sleep 0.5
 
-      within(:xpath, "//table/tbody/tr[2]/td[1]") do
+      within(:xpath, '//table/tbody/tr[2]/td[1]') do
         expect(page).to have_text('fiesta')
       end
 
-      within(:xpath, "//table/tbody/tr[3]/td[1]") do
+      within(:xpath, '//table/tbody/tr[3]/td[1]') do
         expect(page).to have_text('palio')
       end
 
-      within(:xpath, "//table/tbody/tr[4]/td[1]") do
+      within(:xpath, '//table/tbody/tr[4]/td[1]') do
         expect(page).to have_text('corsa')
       end
     end
@@ -281,34 +281,34 @@ describe 'Vehicle Searching', type: :feature do
 
       sleep 0.5
 
-      within(:xpath, "//table/tbody/tr[2]/td[1]") do
+      within(:xpath, '//table/tbody/tr[2]/td[1]') do
         expect(page).to have_text('palio')
       end
 
-      within(:xpath, "//table/tbody/tr[3]/td[1]") do
+      within(:xpath, '//table/tbody/tr[3]/td[1]') do
         expect(page).to have_text('fiesta')
       end
 
-      within(:xpath, "//table/tbody/tr[4]/td[1]") do
+      within(:xpath, '//table/tbody/tr[4]/td[1]') do
         expect(page).to have_text('corsa')
       end
     end
-    
+
     it 'by ordering by color and default ordering' do
       find_by_id('sorting[field]').find("option[value='#{SearchOrderFields::COLOR}']").click
       find('input[type="submit"]').click
 
       sleep 0.5
 
-      within(:xpath, "//table/tbody/tr[2]/td[1]") do
+      within(:xpath, '//table/tbody/tr[2]/td[1]') do
         expect(page).to have_text('corsa')
       end
 
-      within(:xpath, "//table/tbody/tr[3]/td[1]") do
+      within(:xpath, '//table/tbody/tr[3]/td[1]') do
         expect(page).to have_text('palio')
       end
 
-      within(:xpath, "//table/tbody/tr[4]/td[1]") do
+      within(:xpath, '//table/tbody/tr[4]/td[1]') do
         expect(page).to have_text('fiesta')
       end
     end

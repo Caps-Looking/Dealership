@@ -4,7 +4,7 @@ class CommerceController < ApplicationController
   has_scope :with_text, as: :search
   has_scope :with_store, as: :store_id
   has_scope :with_price, as: :price, type: :hash do |_controller, scope, value|
-    scope.with_price(value[:min] || 0, value[:max] || 9_999_999_999)
+    scope.with_price(value[:min] || 0.to_s, value[:max] || 9_999_999_999.to_s)
   end
   has_scope :with_mileage, as: :mileage, type: :hash do |_controller, scope, value|
     scope.with_mileage(value[:min] || 0, value[:max] || 9_999_999_999)
@@ -21,7 +21,7 @@ class CommerceController < ApplicationController
   has_scope :page, default: 1
 
   def index
-    @vehicles = apply_scopes(Vehicle.all)
+    @vehicles = apply_scopes(Vehicle.includes(:store))
   end
 
   def show

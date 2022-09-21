@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'commerce#index'
+  root to: redirect('/commerce')
 
   namespace :admin do
     resources :users
