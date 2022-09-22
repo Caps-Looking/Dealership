@@ -43,8 +43,8 @@ class Vehicle < ApplicationRecord
                     }
   scope :with_store, ->(store_id) { where(store_id:) }
   scope :with_price, ->(min, max) { where(price: min..max) }
-  scope :with_mileage, ->(min, max) { where('mileage between :min and :max', min:, max:) }
-  scope :with_year, ->(min, max) { where('year between :min and :max', min:, max:) }
+  scope :with_mileage, ->(min, max) { where(mileage: min..max) }
+  scope :with_year, ->(min, max) { where(year: min..max) }
   scope :with_transmission, ->(transmission) { where(transmission:) }
   scope :with_fuel, ->(fuel) { where(fuel:) }
   scope :with_optional, lambda { |optional|

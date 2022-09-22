@@ -8,8 +8,7 @@ class SearchOrderFields < EnumerateIt::Base
     :version,
     :color,
     :price,
-    :mileage,
-    :store
+    :mileage
   )
 
   sort_by :translation

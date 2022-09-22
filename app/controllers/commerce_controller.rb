@@ -7,7 +7,7 @@ class CommerceController < ApplicationController
     scope.with_price(value[:min] || 0.to_s, value[:max] || 9_999_999_999.to_s)
   end
   has_scope :with_mileage, as: :mileage, type: :hash do |_controller, scope, value|
-    scope.with_mileage(value[:min] || 0, value[:max] || 9_999_999_999)
+    scope.with_mileage(value[:min] || 0.to_s, value[:max] || 9_999_999_999.to_s)
   end
   has_scope :with_year, as: :year, type: :hash do |_controller, scope, value|
     scope.with_year(value[:min] || 1900.to_s, value[:max] || 1.year.from_now.year.to_s)
