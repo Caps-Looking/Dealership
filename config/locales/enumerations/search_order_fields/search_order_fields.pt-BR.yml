@@ -1,0 +1,10 @@
+pt-BR:
+  enumerations:
+    search_order_fields:
+      name: 'Nome'
+      brand: 'Marca'
+      model: 'Modelo'
+      version: 'Versão'
+      color: 'Cor'
+      price: 'Preço'
+      mileage: 'Quilometragem'

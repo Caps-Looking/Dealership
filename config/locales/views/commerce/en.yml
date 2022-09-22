@@ -1,0 +1,13 @@
+en:
+  views:
+    commerce:
+      search: Search
+      store: Store
+      to: To
+      price: Price from
+      mileage: Mileage from
+      year: Year from
+      transmission: Transmission
+      fuel: Fuel
+      optional: Optional
+      order_by: Order by

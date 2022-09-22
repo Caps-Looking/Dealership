@@ -37,4 +37,18 @@ class Vehicle < ApplicationRecord
     less_than: 9_999_999_999,
     format: { with: /\A\d{1,10}(\.\d{1,2})?\z/ }
   }
+
+  scope :with_text, lambda { |text|
+                      where('vehicles.name = :text or brand = :text or model = :text or version = :text or vehicles.description = :text or color = :text', text:)
+                    }
+  scope :with_store, ->(store_id) { where(store_id:) }
+  scope :with_price, ->(min, max) { where(price: min..max) }
+  scope :with_mileage, ->(min, max) { where(mileage: min..max) }
+  scope :with_year, ->(min, max) { where(year: min..max) }
+  scope :with_transmission, ->(transmission) { where(transmission:) }
+  scope :with_fuel, ->(fuel) { where(fuel:) }
+  scope :with_optional, lambda { |optional|
+                          joins(:vehicle_optionals).where(vehicle_optionals: { name: optional }).or(where(vehicle_optionals: { description: optional }))
+                        }
+  scope :with_sort, ->(field, sort) { order(field => sort) }
 end

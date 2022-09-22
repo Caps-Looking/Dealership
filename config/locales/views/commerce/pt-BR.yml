@@ -1,0 +1,13 @@
+pt-BR:
+  views:
+    commerce:
+      search: Buscar
+      store: Loja
+      to: Até
+      price: Preço a partir de
+      mileage: Quilometragem a partir de
+      year: Ano a partir de
+      transmission: Câmbio
+      fuel: Combustível
+      optional: Opcional
+      order_by: Ordenar por
